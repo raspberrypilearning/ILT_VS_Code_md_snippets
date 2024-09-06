@@ -13,121 +13,295 @@
 	// 	"description": "Log output to console"
 	// }
 
-	"Insert task": {
-	"prefix": "-t",
+"Insert task": {
+	"prefix": "task",
 	"body": [
 	"--- task ---",
-	"",
+	"\r",
 	"$1",
-	"",
-	"--- /task ---",
-	""
+    "\r",
+	"--- /task ---"
 	],
 	"description": "insert projects site task"
 	},
 
-	"Insert collapse": {
-		"prefix": "-c",
-		"body": [
-			"--- collapse ---",
-			"---",
-			"title: $1",
-			"---",
-			"",
-			"$2",
-			"",
-			"--- /collapse ---"
+"Insert collapse": {
+	"prefix": "col",
+	"body": [
+	"--- collapse ---\n\n---",
+	"\r",
+	"title: $1",
+	"\r",
+	"---\n\n$2\n\n--- /collapse ---"
+	],
+	"description": "insert projects site collapse"
+	},
+
+"Insert url": {
+	"prefix": "url",
+	"body": [
+		"[${1:desc}](${2:path})"
+	],
+	"description": "insert projects site url"
+},
+
+"Looks block": {
+	"prefix": "looks",
+	"body": [
+		"`$1`{:class=\"block3looks\"}"
+	],
+	"description": "Looks block"
+},
+
+"Motion block": {
+	"prefix": "motion",
+	"body": [
+		"`$1`{:class=\"block3motion\"}"
+	],
+	"description": "Motion block"
+},
+
+"Events block": {
+	"prefix": "events",
+	"body": [
+		"`$1`{:class=\"block3events\"}"
+	],
+	"description": "Events block"
+},
+
+"Control block": {
+	"prefix": "control",
+	"body": [
+		"`$1`{:class=\"block3control\"}"
+	],
+	"description": "Control block"
+},
+
+"Sensing block": {
+	"prefix": "sensing",
+	"body": [
+		"`$1`{:class=\"block3sensing\"}"
+	],
+	"description": "Sensing block"
+},
+
+"Sounds block": {
+	"prefix": "sound",
+	"body": [
+		"`$1`{:class=\"block3sound\"}"
+	],
+	"description": "Sounds block"
+},
+
+"Operators block": {
+	"prefix": "op",
+	"body": [
+		"`$1`{:class=\"block3operators\"}"
+	],
+	"description": "Sounds block"
+},
+
+"Variables block": {
+	"prefix": "var",
+	"body": [
+		"`$1`{:class=\"block3variables\"}"
+	],
+	"description": "Variables block"
+},
+
+"My blocks block": {
+	"prefix": "custom",
+	"body": [
+		"`$1`{:class=\"block3custom\"}"
+	],
+	"description": "My blocks block"
+},
+
+"Insert image": {
+	"prefix": "image",
+	"body": [
+		"![${1:desc}](images/${2:path})"
+	],
+	"description": "insert projects site image"
+},
+
+"Embed": {
+	"prefix": "embed",
+	"body": [
+		"** $1 **: [See inside](https://scratch.mit.edu/projects/$2/editor){:target=\"_blank\"}",
+
+		"<div class=\"scratch-preview\">\n<iframe allowtransparency=\"true\" width=\"485\" height=\"402\" src=\"https://scratch.mit.edu/projects/embed/$2/?autostart=false\" frameborder=\"0\"></iframe>\n</div>"
+	],
+	"description": "embed Scratch project with See Inside"
+},
+
+"Insert html code": {
+	"prefix": "html",
+	"body": [
+		"--- code ---",
+		"---",
+		"language: html",
+		"filename: index.html",
+		"line_numbers: true",
+		"line_number_start: $1",
+		"line_highlights: $2",
+		"---",
+		"$3",
+		"--- /code ---",
 		],
-		"description": "insert projects site collapse"
-		},
-	"Insert inline code": {
-		"prefix": "-b",
-		"body": [
-			"`$1`{:class='block3$2'}"
+	"description": "insert html code"
+},
+"Insert python code": {
+	"prefix": "python",
+	"body": [
+		"--- code ---",
+		"---",
+		"language: python",
+		"filename: main.py",
+		"line_numbers: true",
+		"line_number_start: $1",
+		"line_highlights: $2",
+		"---",
+		"$3",
+		"--- /code ---",
 		],
-		"description": "insert projects site task"
-		},
-	"Insert quiz question": {
-		"prefix": "-mc",
-		"body":[
-			"--- question ---",
-			"",
-			"---",
-			"legend: Question $1 of 3",
-			"---",
-			"",
-			"$2",
-			"",
-			"--- choices ---",
-			"",
-			"- ( ) 1: $3",
-			"",
-			"--- feedback ---",
-			"",
-			"$4",
-			"",
-			"--- /feedback ---",
-			"",
-			"- ( ) 2: $5",
-			"",
-			"--- feedback ---",
-			"",
-			"$6",
-			"",
-			"--- /feedback ---",
-			"",
-			"- ( ) 3: $7",
-			"",
-			"--- feedback ---",
-			"",
-			"$8",
-			"",
-			"--- /feedback ---",
-			"",
-			"- ( ) 4: $9",
-			"",
-			"--- feedback ---",
-			"",
-			"$10",
-			"",
-			"--- /feedback ---",
-			"",
-			"--- /choices ---",
-			"",
-			"--- /question ---"
+	"description": "insert python code"
+},
+
+"Insert quiz question": {
+	"prefix": "quiz",
+	"body": [
+		"--- question ---",
+		"",
+		"---",
+		"legend: Question $1 of 3",
+		"---",
+		"",
+		"$2",
+		"",
+		"--- choices ---",
+		"",
+		"- ( ) $3.",
+		"",
+		" --- feedback ---",
+		"",
+		" $4.",
+		"",
+		" --- /feedback ---",
+		"",
+		"- ( ) $4.",
+		"",
+		" --- feedback ---",
+		"",
+		" $6.",
+		"",
+		" --- /feedback ---",
+		"",
+		"- (x) $7.",
+		"",
+		" --- feedback ---",
+		"",
+		" $8.",
+		"",
+		" --- /feedback ---",
+		"",
+		"- ( ) $9.",
+		"",
+		" --- feedback ---",
+		"",
+		" $10.",
+		"",
+		" --- /feedback ---",
+		"",
+		"--- /choices ---",
+		"",
+		"--- /question ---",
 		],
-		"description": "insert an mc quiz question"
-		},
-		"Insert boxout": {
-			"prefix": "-box",
-			"body": [
-				"<p style='border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;'>"
-				"$1"
-				"</p>"
-			],
-			"description": "insert boxout"
-			},
-		"Insert link": {
-			"prefix": "-l",
-			"body": [
-				"[$1](https://$2){:target='_blank'}"
-			],
-			"description": "insert link"
-			},
-		"Insert code block": {
-			"prefix": "-pyth",
-			"body": [
-				"--- code ---",
-				"---",
-				"language: python",
-				"filename: $1",
-				"line_numbers: $2true",
-				"line_number_start: $3",
-				"line_highlights: $4",
-				"---",
-				"$5",
-				"--- /code ---",
-		],
-		"description": "insert python"
-		}
+	"description": "insert template quiz page"
+},
+
+"micro:bit Basic menu": {
+	"prefix": "Basic",
+	"body": ["`Basic`{:class='microbitbasic'}"],
+	"description": "insert Basic menu reference - micro:bit"
+},
+
+"micro:bit Input menu": {
+	"prefix": "Input",
+	"body": ["`Input`{:class='microbitinput'}"],
+	"description": "insert Input menu reference - micro:bit"
+},
+
+"micro:bit Music menu": {
+	"prefix": "Music",
+	"body": ["`Music`{:class='microbitmusic'}"],
+	"description": "insert Music menu reference - micro:bit"
+},
+
+"micro:bit Led menu": {
+	"prefix": "Led",
+	"body": ["`Led`{:class='microbitled'}"],
+	"description": "insert Led menu reference - micro:bit"
+},
+
+"micro:bit Radio menu": {
+	"prefix": "Radio",
+	"body": ["`Radio`{:class='microbitradio'}"],
+	"description": "insert Radio menu reference - micro:bit"
+},
+
+"micro:bit Loops menu": {
+	"prefix": "Loops",
+	"body": ["`Loops`{:class='microbitloops'}"],
+	"description": "insert Loops menu reference - micro:bit"
+},
+
+"micro:bit Logic menu": {
+	"prefix": "Logic",
+	"body": ["`Logic`{:class='microbitlogic'}"],
+	"description": "insert Logic menu reference - micro:bit"
+},
+
+"micro:bit Variable menu": {
+	"prefix": "Variable",
+	"body": ["`Variables`{:class='microbitvariables'}"],
+	"description": "insert Variable menu reference - micro:bit"
+},
+
+"micro:bit Math menu": {
+	"prefix": "Math",
+	"body": ["`Math`{:class='microbitmath'}"],
+	"description": "insert Math menu reference - micro:bit"
+},
+
+"micro:bit Functions menu": {
+	"prefix": "Functions",
+	"body": ["`Functions`{:class='microbitfunctions'}"],
+	"description": "insert Functions menu reference - micro:bit"
+},
+
+"micro:bit Arrays menu": {
+	"prefix": "Arrays",
+	"body": ["`Arrays`{:class='microbitarrays'}"],
+	"description": "insert Arrays menu reference - micro:bit"
+},
+
+"micro:bit Text menu": {
+	"prefix": "Text",
+	"body": ["`Text`{:class='microbittext'}"],
+	"description": "insert Text menu reference - micro:bit"
+},
+
+"micro:bit Data Logger menu": {
+	"prefix": "Data Logger",
+	"body": ["`Data Logger`{:class='microbitdatalogger'}"],
+	"description": "insert Data Logger menu reference - micro:bit"
+},
+
+"editor embed": {
+	"prefix": "editor-embed",
+	"body": ["<iframe src=\"https://staging-editor.raspberrypi.org/en/embed/viewer/$1\" width=\"600\" height=\"600\" frameborder=\"0\" marginwidth=\"0\" marginheight=\"0\" allowfullscreen> </iframe>"],
+	"description": "insert editor embed
+},
+
 }
