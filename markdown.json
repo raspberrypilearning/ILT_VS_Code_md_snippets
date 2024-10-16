@@ -301,7 +301,46 @@
 "editor embed": {
 	"prefix": "editor-embed",
 	"body": ["<iframe src=\"https://staging-editor.raspberrypi.org/en/embed/viewer/$1\" width=\"600\" height=\"600\" frameborder=\"0\" marginwidth=\"0\" marginheight=\"0\" allowfullscreen> </iframe>"],
-	"description": "insert editor embed
+	"description": "insert editor embed"
+},
+
+"YTVideoTall": {
+	"prefix": "yttall",
+	"body": [
+		<html>
+		<iframe style="max-width: 448px;" width="100%" height="796" src="https://www.youtube.com/embed/$1?rel=0&cc_load_policy=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+		</iframe>    
+		</html>
+		],
+	"description": "embed portrait YT video"
+},
+
+"YTVideoWide": {
+	"prefix": "ytwide",
+	"body": [
+		<html>
+		<div style="position: relative; overflow: hidden; padding-top: 56.25%;">
+		<iframe style="position: absolute; top: 0; left: 0; right: 0; width: 100%; height: 100%; border: none;" src="https://www.youtube.com/embed/XXXXXXXXX?rel=0&cc_load_policy=1" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share">
+		</iframe>
+		</div><br>
+	  	</html>
+	  
+		],
+	"description": "embed landscape YT video"
+},
+
+"Challenge": {
+	"prefix": "chg",
+	"body": [
+		"--- challenge ---",
+ 
+		"$1",
+ 
+		"--- /challenge ---"
+	],
+	"description": "Challenge"
 },
 
 }
+ 
+
